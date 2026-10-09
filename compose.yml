@@ -1,23 +1,36 @@
+x-arcane:
+  icon: ${CROWDSEC_ICON}
+  urls:
+    - https://www.crowdsec.net
+    - https://github.com/crowdsecurity/crowdsec
+    - https://github.com/hi427893/caddy-crowdsec-bouncer
+    - https://caddyserver.com
+    - https://github.com/caddyserver/caddy
+
 services:
   crowdsec:
     image: crowdsecurity/crowdsec
     ports:
-      - "8051:8080"
+      - ${CROWDSEC_API_PORT:8080}:8080
     volumes:
       - logs:/var/log/nginx/
+    labels:
+      com.getarcaneapp.arcane.icon: ${CROWDSEC_ICON}
 
   caddy:
     build:
       context: ./docker
       target: caddy
     ports:
-      - "9443:9443"
-      - "8443:8443"
+      - ${CADDY_TEST_PORT_1:9443}:9443
+      - ${CADDY_TEST_PORT_1:8443}:8443
     volumes:
       - caddy-data:/data
       - caddy-config:/config
       - logs:/var/log/caddy
       - ./docker/config.json:/etc/caddy/config.json
+    labels:
+      com.getarcaneapp.arcane.icon: ${CADDY_ICON}
 
 volumes:
   caddy-data:
