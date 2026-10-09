@@ -1,6 +1,5 @@
 # CrowdSec Bouncer for Caddy
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/hslatman/caddy-crowdsec-bouncer)](https://goreportcard.com/report/github.com/hslatman/caddy-crowdsec-bouncer)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 > A [Caddy](https://caddyserver.com/) module that blocks malicious traffic based on decisions made by [CrowdSec](https://crowdsec.net/).
