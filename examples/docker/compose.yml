@@ -4,10 +4,10 @@ services:
     restart: unless-stopped
     ports:
       - 127.0.0.1:8080:8080
-#     - 127.0.0.1:7422:7422 # uncomment if using appsec
+      - 127.0.0.1:7422:7422 # uncomment if using appsec
     environment:
       COLLECTIONS: "crowdsecurity/caddy"
-#     COLLECTIONS: "crowdsecurity/caddy crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules" # uncommend if using appsec
+      COLLECTIONS: "crowdsecurity/caddy crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules" # uncommend if using appsec
       GID: "${GID-1000}"
     depends_on:
       - "reverse-proxy"
